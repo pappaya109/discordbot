@@ -22,15 +22,15 @@ client.once('ready', () => {
 client.on('threadCreate', async (thread) => {
     try {
         // 특정 부모 채널들의 ID 배열
-        const targetChannelIds = ['CHANNEL_ID_1', 'CHANNEL_ID_2', 'CHANNEL_ID_3']; // 채널 ID 입력
-
+        const targetChannelIds = ['1314085104896966756', '1314087916598857818', '1314092858369773630']; // 채널 ID 입력
+        // const targetChannelId = '1304429163427663875'
         // 부모 채널 확인 (ID가 배열에 포함되어 있는지 체크)
         if (!targetChannelIds.includes(thread.parentId)) {
             return; // 특정 채널들이 아니라면 무시
         }
 
         // 로그를 남길 채널 ID
-        const logChannelId = 'LOG_CHANNEL_ID'; // 로그 채널 ID 입력
+        const logChannelId = '1324335827718770769'; // 로그 채널 ID 입력
         const logChannel = thread.guild.channels.cache.get(logChannelId);
 
         if (!logChannel || !logChannel.isTextBased()) {
