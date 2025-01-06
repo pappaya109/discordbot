@@ -12,7 +12,7 @@ const client = new Client({
 
 // 토큰 설정
 const TOKEN = config.token;
-const TARGET_CHANNEL_ID = '1304429163427663875'; // 특정 채널 ID
+// const TARGET_CHANNEL_ID = '1304429163427663875'; // 특정 채널 ID
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -47,11 +47,10 @@ client.on('threadCreate', async (thread) => {
         const parentChannelName = parentChannel ? parentChannel.name : '알 수 없음';
 
         // 로그 메시지 생성
-        const logMessage = `특정 채널에서 새 스레드가 생성되었습니다:
-- 스레드 이름: ${thread.name} (ID: ${thread.id})
+        const logMessage = `
 - 스레드 URL: ${thread.url}
-- 생성자: ${creator.user.tag} (ID: ${creatorId})
-- 부모 채널: ${parentChannelName} (ID: ${parentChannel?.id || '알 수 없음'})`;
+- 생성자: ${creator.user.tag} 
+- 부모 채널: ${parentChannelName} `;
 
         // 로그 채널에 메시지 보내기
         await logChannel.send(logMessage);
